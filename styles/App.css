@@ -1,0 +1,20 @@
+/* calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300))); */
+html {
+  font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+  background-color: #283043;
+}
+
+.particles {
+  height: 100vh;
+}
+
+@media screen and (min-width: 320px) {
+  html {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "name": "itscodingthing",
+    "version": 2,
+    "builds": [
+        { "src": "package.json", "use": "@now/next" }
+    ]
+}

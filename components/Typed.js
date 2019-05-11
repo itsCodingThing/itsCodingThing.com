@@ -1,0 +1,27 @@
+import React from "react";
+import ReactTyped from "react-typed";
+
+export default () => {
+  return (
+    <h1>
+      <ReactTyped
+        strings={[
+          "I am a developer",
+          "I am a techie",
+          "I am a foodie",
+          "but itsCodingThing"
+        ]}
+        typeSpeed={80}
+        backSpeed={80}
+        backDelay={5}
+        loop
+        smartBackspace
+      />
+      <style jsx>{`
+        h1 {
+          color: whitesmoke;
+        }
+      `}</style>
+    </h1>
+  );
+};
