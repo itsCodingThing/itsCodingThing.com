@@ -1,5 +1,4 @@
 import React from "react";
-import fetch from "isomorphic-unfetch";
 import Theme from "../components/Theme";
 import fetchRepos from "../utils/gh-api";
 import CardDeck from "../components/CardDeck";
@@ -15,7 +14,6 @@ export default class aboutPage extends React.Component {
 
   render() {
     let repos = this.props.result;
-    console.log(repos);
     return (
       <Theme>
         <Navbar>&lt;itscodingthing/&gt;</Navbar>

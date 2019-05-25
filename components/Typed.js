@@ -9,7 +9,7 @@ export default () => {
           "I am a developer",
           "I am a techie",
           "I am a foodie",
-          "but itsCodingThing"
+          "itsCodingThing"
         ]}
         typeSpeed={80}
         backSpeed={80}
