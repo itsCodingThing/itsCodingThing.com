@@ -1,5 +1,3 @@
-import React from "react";
-
 import Theme from "../components/Theme";
 import Typed from "../components/Typed";
 import Navbar from "../components/Navbar";
@@ -30,15 +28,6 @@ export default function HomePage() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-        }
-
-        @media (min-width: 576px) {
-          .main {
-            width: 45%;
-            background-color: transparent;
-            box-shadow: -8px 7px 22px -5px rgba(0, 0, 0, 0.58);
-            border: 0.3rem solid #0033c7;
-          }
         }
       `}</style>
     </Theme>

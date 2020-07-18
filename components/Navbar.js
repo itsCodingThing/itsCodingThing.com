@@ -55,6 +55,11 @@ export default function Navbar(props) {
           color: whitesmoke;
         }
 
+        .navbar-light .navbar-brand:hover,
+        .navbar-light .navbar-brand:focus {
+          color: whitesmoke;
+        }
+
         @media (min-width: 576px) {
           .navbar {
             flex-direction: row;

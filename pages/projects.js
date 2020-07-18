@@ -1,4 +1,3 @@
-import React from "react";
 import Theme from "../components/Theme";
 import fetchRepos from "../utils/gh-api";
 import CardDeck from "../components/CardDeck";
