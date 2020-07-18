@@ -6,7 +6,7 @@ export default function Typed() {
     <h1>
       <ReactTyped
         strings={[
-          "I am a developer",
+          "I am a dev",
           "I am a techie",
           "I am a foodie",
           "itsCodingThing",

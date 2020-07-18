@@ -1,9 +1,9 @@
 import React from "react";
 
 import Theme from "../components/Theme";
-import RenderParticles from "../components/RenderParticles";
 import Typed from "../components/Typed";
 import Navbar from "../components/Navbar";
+import RenderParticles from "../components/RenderParticles";
 
 export default function HomePage() {
   return (
