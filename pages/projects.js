@@ -4,7 +4,7 @@ import fetchRepos from "../utils/gh-api";
 import CardDeck from "../components/CardDeck";
 import Navbar from "../components/Navbar";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   let data = await fetchRepos();
   return {
     props: {
