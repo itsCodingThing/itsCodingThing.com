@@ -13,7 +13,6 @@ export default function HomePage() {
       <RenderParticles />
       <div className="main">
         <Typed />
-        <button className="btn btn-primary btn-sm">Resume</button>
       </div>
 
       <style jsx>{`
