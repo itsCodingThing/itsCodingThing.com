@@ -1,7 +1,6 @@
 import GitHub from "github-api";
-import key from "./config.json";
 
-const gh = new GitHub({ token: key.token });
+const gh = new GitHub({ token: process.env.NEXT_PUBLIC_GITHUB_TOKEN });
 
 const fetchRepos = async () => {
   let me = gh.getUser();

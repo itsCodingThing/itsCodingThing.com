@@ -59,7 +59,7 @@ function Card(props) {
   );
 }
 
-export default function CardDeck() {
+export default function CardDeck(props) {
   return (
     <div className="card-columns">
       {props.result.map((repo) => (
