@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
 import "../styles/App.css";
 
-export default ({ children }) => {
+export default function Theme({ children }) {
   return (
     <div className="theme">
       <Head>
@@ -20,7 +20,7 @@ export default ({ children }) => {
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
       </Head>
       {children}
@@ -33,4 +33,4 @@ export default ({ children }) => {
       `}</style>
     </div>
   );
-};
+}

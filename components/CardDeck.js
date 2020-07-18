@@ -6,13 +6,13 @@ function randomColor() {
     "danger",
     "warning",
     "info",
-    "dark"
+    "dark",
   ];
   let randomNumber = Math.floor(Math.random() * (7 - 0) + 0);
   return color[randomNumber];
 }
 
-const Card = props => {
+function Card(props) {
   let color = randomColor();
 
   let ts = new Date(props.update);
@@ -57,18 +57,20 @@ const Card = props => {
       `}</style>
     </div>
   );
-};
+}
 
-export default props => (
-  <div className="card-columns">
-    {props.result.map(repo => (
-      <Card
-        key={repo.id}
-        name={repo.name}
-        description={repo.description}
-        link={repo.html_url}
-        update={repo.updated_at}
-      />
-    ))}
-  </div>
-);
+export default function CardDeck() {
+  return (
+    <div className="card-columns">
+      {props.result.map((repo) => (
+        <Card
+          key={repo.id}
+          name={repo.name}
+          description={repo.description}
+          link={repo.html_url}
+          update={repo.updated_at}
+        />
+      ))}
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactTyped from "react-typed";
 
-export default () => {
+export default function Typed() {
   return (
     <h1>
       <ReactTyped
@@ -9,7 +9,7 @@ export default () => {
           "I am a developer",
           "I am a techie",
           "I am a foodie",
-          "itsCodingThing"
+          "itsCodingThing",
         ]}
         typeSpeed={80}
         backSpeed={80}
@@ -24,4 +24,4 @@ export default () => {
       `}</style>
     </h1>
   );
-};
+}

@@ -1,10 +1,11 @@
-import Theme from "../components/Theme";
 import React from "react";
+
+import Theme from "../components/Theme";
 import RenderParticles from "../components/RenderParticles";
 import Typed from "../components/Typed";
 import Navbar from "../components/Navbar";
 
-export default () => {
+export default function HomePage() {
   return (
     <Theme>
       <Navbar>&lt;itscodingthing/&gt;</Navbar>
@@ -43,4 +44,4 @@ export default () => {
       `}</style>
     </Theme>
   );
-};
+}

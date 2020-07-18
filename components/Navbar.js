@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default props => {
+export default function Navbar(props) {
   return (
     <nav className="navbar bg-transparent navbar-light">
       <span className="navbar-brand mb-0 h1">{props.children}</span>
@@ -64,4 +64,4 @@ export default props => {
       `}</style>
     </nav>
   );
-};
+}
