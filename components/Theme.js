@@ -1,6 +1,4 @@
-import "bootstrap/dist/css/bootstrap.css";
 import Head from "next/head";
-import "../styles/App.css";
 
 export default function Theme({ children }) {
   return (
@@ -13,7 +11,7 @@ export default function Theme({ children }) {
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Advent+Pro:700|Roboto+Slab|Roboto+Condensed:300,700"
+          href="https://fonts.googleapis.com/css?family=Advent+Pro:700|Roboto+Slab|Roboto+Condensed:300,700&display=swap"
           rel="stylesheet"
         />
         <link
@@ -22,12 +20,18 @@ export default function Theme({ children }) {
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossOrigin="anonymous"
         />
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossOrigin="anonymous"
+        ></link>
       </Head>
       {children}
       <style jsx>{`
         .theme {
           background-color: #283043;
-          height: 100%;
+          height: 100vh;
           font-family: "Roboto Slab", serif;
         }
       `}</style>

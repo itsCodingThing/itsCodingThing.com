@@ -1,14 +1,23 @@
+import dynamic from "next/dynamic";
+
 import Theme from "../components/Theme";
-import Typed from "../components/Typed";
 import Navbar from "../components/Navbar";
-import RenderParticles from "../components/RenderParticles";
+
+const Typed = dynamic(() => import("../components/Typed"), {
+  ssr: false,
+  loading: () => <p>...</p>,
+});
+const Particles = dynamic(() => import("../components/RenderParticles"), {
+  ssr: false,
+  loading: () => <p>...</p>,
+});
 
 export default function HomePage() {
   return (
     <Theme>
       <Navbar>&lt;itscodingthing/&gt;</Navbar>
 
-      <RenderParticles />
+      <Particles />
       <div className="main">
         <Typed />
       </div>

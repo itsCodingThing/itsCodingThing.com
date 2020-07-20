@@ -8,28 +8,18 @@ export default function AboutPage() {
       <div className="about">
         <div className="description-about-me">
           <div className="myPic">
-            <img
-              src="../static/myPic2.jpg"
-              width="315px"
-              height="420px"
-              alt="my-pic"
-            />
+            <img src="/myPic2.jpg" width="315px" height="420px" alt="my-pic" />
           </div>
           <div className="say-something">
             <div className="hiContainer">
               <h1 className="display-2 say-heading">Hi,</h1>
-              <img
-                src="../static/hi2.png"
-                alt="sayHi"
-                width="100px"
-                height="100px"
-              />
+              <img src="/hi2.png" alt="sayHi" width="100px" height="100px" />
             </div>
             <p>
               My name is Bhanu Pratap Singh. I am developer and techie. I am
               very passinate about my work. You can find me here{" "}
               <img
-                src="../static/point-down.png"
+                src="/point-down.png"
                 alt="point-down"
                 width="50px"
                 height="50px"
@@ -42,7 +32,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../static/facebook.svg" alt="facebook-icon" />
+                  <img src="/facebook.svg" alt="facebook-icon" />
                 </a>
               </span>
               <span className="instagram">
@@ -51,7 +41,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../static/instagram.svg" alt="insta-icon" />
+                  <img src="/instagram.svg" alt="insta-icon" />
                 </a>
               </span>
               <span className="github">
@@ -60,7 +50,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../static/github.svg" alt="github-icon" />
+                  <img src="/github.svg" alt="github-icon" />
                 </a>
               </span>
               <span className="twitter">
@@ -69,7 +59,7 @@ export default function AboutPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="../static/twitter.svg" alt="twitter-icon" />
+                  <img src="/twitter.svg" alt="twitter-icon" />
                 </a>
               </span>
             </div>
