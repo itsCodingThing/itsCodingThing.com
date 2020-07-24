@@ -1,10 +1,8 @@
 import Theme from "../components/Theme";
-import Navbar from "../components/Navbar";
 
 export default function AboutPage() {
   return (
     <Theme>
-      <Navbar>&lt;itscodingthing/&gt;</Navbar>
       <div className="about">
         <div className="description-about-me">
           <div className="myPic">
@@ -15,16 +13,12 @@ export default function AboutPage() {
               <h1 className="display-2 say-heading">Hi,</h1>
               <img src="/hi2.png" alt="sayHi" width="100px" height="100px" />
             </div>
-            <p>
-              My name is Bhanu Pratap Singh. I am developer and techie. I am
-              very passinate about my work. You can find me here{" "}
-              <img
-                src="/point-down.png"
-                alt="point-down"
-                width="50px"
-                height="50px"
-              />{" "}
-            </p>
+            <div className="description">
+              <p>
+                My name is Bhanu Pratap Singh. I am developer and techie. I am
+                very passinate about my work. You can find me here
+              </p>
+            </div>
             <div className="social-icons">
               <span className="facebook">
                 <a
@@ -37,7 +31,7 @@ export default function AboutPage() {
               </span>
               <span className="instagram">
                 <a
-                  href="http://https://www.instagram.com/bhanu.singh/"
+                  href="https://www.instagram.com/bhanu.singh/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -67,12 +61,11 @@ export default function AboutPage() {
         </div>
         <style jsx>{`
           .about {
-            position: relative;
-            top: 95px;
             display: flex;
             justify-content: center;
             width: 100%;
             height: 100vh;
+            padding-top: 5rem;
           }
 
           .description-about-me {
@@ -82,6 +75,12 @@ export default function AboutPage() {
             height: 100%;
             padding: 10px;
             text-align: center;
+          }
+
+          .social-icons {
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem;
           }
 
           .social-icons > span {
@@ -102,9 +101,12 @@ export default function AboutPage() {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+            text-align: center;
           }
 
           .hiContainer > h1 {
+            font-size: 5rem;
             font-weight: 700;
             color: wheat;
           }
@@ -114,15 +116,16 @@ export default function AboutPage() {
             font-family: "Roboto Condensed", sans-serif;
           }
 
-          .say-something > p {
+          .description {
+            text-align: center;
+          }
+
+          .description > p {
             color: wheat;
+            font-size: 1.1rem;
           }
 
           @media (min-width: 576px) {
-            .about {
-              top: 65px;
-            }
-
             .description-about-me {
               display: flex;
               flex-direction: row;

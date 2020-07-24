@@ -2,7 +2,7 @@ import ReactTyped from "react-typed";
 
 export default function Typed() {
   return (
-    <h1>
+    <h1 className="typed">
       <ReactTyped
         strings={[
           "I am a dev",
@@ -17,7 +17,7 @@ export default function Typed() {
         smartBackspace
       />
       <style jsx>{`
-        h1 {
+        h1.typed {
           color: whitesmoke;
         }
       `}</style>

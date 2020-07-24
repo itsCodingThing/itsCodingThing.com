@@ -2,8 +2,10 @@ import Link from "next/link";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar bg-transparent navbar-light">
-      <span className="navbar-brand mb-0 h1">{props.children}</span>
+    <nav className="navbar">
+      <div className="navbar-brand">
+        <span>{props.children}</span>
+      </div>
 
       <div className="nav-link">
         <Link href="/">
@@ -20,50 +22,54 @@ export default function Navbar(props) {
       </div>
       <style jsx>{`
         .navbar {
-          position: absolute;
-          top: 0;
+          position: fixed;
           padding: 0 1.5rem 0 1.5rem;
           width: 100%;
 
-          flex-direction: column;
-          justify-content: center;
-        }
-
-        .nav-link {
-          padding: 0;
-        }
-
-        a {
-          padding: 0;
-          color: whitesmoke;
-        }
-
-        .nav-link a {
-          display: block;
-          float: left;
-
-          padding: 0.5rem;
-          text-decoration: none;
-        }
-
-        .nav-link a:hover {
-          background-color: #17b0cf;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         }
 
         .navbar-brand {
+          height: 100%;
+        }
+
+        .navbar-brand span {
+          color: whitesmoke;
           font-family: "Advent Pro", sans-serif;
-          color: whitesmoke;
         }
 
-        .navbar-light .navbar-brand:hover,
-        .navbar-light .navbar-brand:focus {
-          color: whitesmoke;
+        .navbar-brand,
+        .nav-link a {
+          padding: 0.5rem;
+          margin: 0 0.5rem;
         }
 
-        @media (min-width: 576px) {
+        .nav-link a {
+          display: inline-block;
+          color: whitesmoke;
+          transition: all 0.5s ease 0s;
+
+          text-decoration: none;
+        }
+
+        .nav-link a:hover,
+        .nav-link a:focus,
+        .nav-link a:active {
+          background-color: #17b0cf;
+        }
+
+        @media (max-width: 576px) {
           .navbar {
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: column;
+            align-items: center;
+            background-color: #283043;
+          }
+
+          .navbar-brand {
+            height: 100%;
+            width: fit-content;
           }
         }
       `}</style>

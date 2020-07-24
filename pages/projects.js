@@ -1,47 +1,140 @@
+import { useEffect, useState } from "react";
 import Theme from "../components/Theme";
 import fetchRepos from "../utils/gh-api";
-import CardDeck from "../components/CardDeck";
-import Navbar from "../components/Navbar";
 
-export async function getServerSideProps() {
-  let data = await fetchRepos();
-  return {
-    props: {
-      result: data,
-    },
+function Card({ repo }) {
+  const anchor = window.document.createElement("a");
+  anchor.href = repo.html_url;
+  anchor.target = "__blank";
+  anchor.rel = "noreferrer";
+
+  let date = new Date(repo.updated_at);
+
+  let onClickBtn = () => {
+    anchor.click();
   };
+
+  return (
+    <div className="card" onClick={onClickBtn}>
+      <div className="card-body">
+        <h4 className="card-title">{repo.name}</h4>
+        <p className="card-text">{repo.description}</p>
+      </div>
+      <div className="card-footer">
+        <small>{`last updated - ${date.toDateString()}`}</small>
+      </div>
+
+      <style jsx>{`
+        .card {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          background-color: pink;
+          height: 100%;
+          width: auto;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.5rem;
+          cursor: pointer;
+
+          transition: all 0.2s ease 0s;
+        }
+
+        .card:hover {
+          box-shadow: 0px 0px 8px 5px rgba(255, 255, 255, 0.4);
+          transform: translate(5px, -5px) scale(1.05);
+        }
+
+        .card:focus,
+        .card:active {
+          box-shadow: none;
+          transform: translate(0) scale(1);
+        }
+
+        .card-body > h4 {
+        }
+
+        .card-body > p {
+          padding-top: 0.5rem;
+          padding-bottom: 1rem;
+          font-size: 0.7rem;
+        }
+
+        .card-footer {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .card-footer > small,
+        .card-footer > a {
+          font-size: 0.7rem;
+        }
+      `}</style>
+    </div>
+  );
 }
 
-export default function ProjectsPage(props) {
-  let repos = props.result;
+export default function ProjectsPage() {
+  let [{ result: repos }, setState] = useState({ result: [] });
+
+  useEffect(() => {
+    let isCurrent = true;
+
+    async function getReposFromGithub() {
+      let data = await fetchRepos();
+
+      if (isCurrent) {
+        setState({ result: data });
+      }
+    }
+
+    getReposFromGithub();
+
+    return () => {
+      isCurrent = false;
+    };
+  }, []);
+
   return (
     <Theme>
-      <Navbar>&lt;itscodingthing/&gt;</Navbar>
       <div className="projects">
-        <div className="githubRepos">
-          <CardDeck result={repos} />
-        </div>
+        {repos.length === 0 ? (
+          <div className="load">
+            <p>Please waiting...</p>
+          </div>
+        ) : (
+          <div className="grid">
+            {repos.map((repo) => (
+              <div className="grid-item" key={repo.id}>
+                <Card repo={repo} />
+              </div>
+            ))}
+          </div>
+        )}
         <style jsx>{`
-          .githubRepos {
+          .grid {
+            display: grid;
+            grid-template-columns: repeat(
+              auto-fill,
+              minmax(min(200px, 100%), 1fr)
+            );
+            grid-gap: 1rem;
+            padding: 0.5rem;
+          }
+
+          .load {
+            padding-top: 5rem;
+            width: 100%;
             height: 100%;
-            padding-left: 10px;
-            padding-right: 10px;
+            text-align: center;
+          }
+
+          .load > p {
+            color: white;
+            font-size: 1.2rem;
           }
 
           .projects {
-            position: relative;
-            top: 95px;
-
-            padding: 15px;
-            height: 100vh;
-            width: 100%;
-          }
-
-          @media (min-width: 576px) {
-            .githubRepos {
-              padding-left: 75px;
-              padding-right: 75px;
-            }
+            padding: 5rem 2rem 0 2rem;
           }
         `}</style>
       </div>
