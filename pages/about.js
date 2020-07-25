@@ -15,9 +15,9 @@ export default function AboutPage() {
             </div>
             <div className="description">
               <p>
-                My name is Bhanu Pratap Singh. I am web developer sort of 🤷‍♂️. I
-                am doing web develepoment for a quiet sometime. I am very
-                passinate about my work. You can find me here
+                My name is Bhanu Pratap Singh. I am a web developer sort of 🤷‍♂️.
+                I am doing web development for quite some time. I am very
+                passionate about my work. You can find me here
               </p>
             </div>
             <div className="social-icons">
