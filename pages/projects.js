@@ -17,7 +17,7 @@ function Card({ repo }) {
   return (
     <div className="card" onClick={onClickBtn}>
       <div className="card-body">
-        <h4 className="card-title">{repo.name}</h4>
+        <h5 className="card-title">{repo.name}</h5>
         <p className="card-text">{repo.description}</p>
       </div>
       <div className="card-footer">
@@ -50,23 +50,33 @@ function Card({ repo }) {
           transform: translate(0) scale(1);
         }
 
-        .card-body > h4 {
+        .card-body > h5 {
         }
 
         .card-body > p {
           padding-top: 0.5rem;
           padding-bottom: 1rem;
-          font-size: 0.7rem;
+          font-size: 0.6rem;
         }
 
         .card-footer {
           display: flex;
           justify-content: space-between;
+          color: blue;
         }
 
         .card-footer > small,
         .card-footer > a {
           font-size: 0.7rem;
+        }
+
+        @media (max-width: 567px) {
+          .card:focus,
+          .card:active,
+          .card:hover {
+            box-shadow: none;
+            transform: none;
+          }
         }
       `}</style>
     </div>
@@ -99,7 +109,7 @@ export default function ProjectsPage() {
       <div className="projects">
         {repos.length === 0 ? (
           <div className="load">
-            <p>Please waiting...</p>
+            <p>Please wait...</p>
           </div>
         ) : (
           <div className="grid">
