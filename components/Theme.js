@@ -19,6 +19,7 @@ export default function Theme({ children }) {
           href="https://fonts.googleapis.com/css?family=Advent+Pro:700|Roboto+Slab|Roboto+Condensed:300,700&display=swap"
           rel="stylesheet"
         />
+        <link rel="shortcut icon" href="/itscodingthinglogocircle.png" />
       </Head>
       <Navbar>&lt;itscodingthing/&gt;</Navbar>
 
