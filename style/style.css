@@ -3,34 +3,111 @@
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
-  margin: 0;
-  padding: 0;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  box-sizing: border-box;
-  font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
+    box-sizing: border-box;
+    font-size: calc(14px + (18 - 14) * ((100vw - 300px) / (1600 - 300)));
 }
 
 body {
-  background-color: #283043;
+    background-color: #283043;
 }
 
 .particles {
-  height: 100%;
+    height: 100%;
+}
+
+.navbar {
+    position: fixed;
+    padding: 0 1.5rem 0 1.5rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    height: 100%;
+}
+
+.navbar-brand span {
+    color: whitesmoke;
+    font-family: "Advent Pro", sans-serif;
+}
+
+.navbar-brand,
+.nav-link a {
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+}
+
+.nav-link a {
+    display: inline-block;
+    color: whitesmoke;
+    transition: all 0.5s ease 0s;
+
+    text-decoration: none;
+}
+
+.nav-link a:hover,
+.nav-link a:focus,
+.nav-link a:active {
+    background-color: #17b0cf;
+}
+
+h1.typed,
+span {
+    color: whitesmoke;
+}
+
+.typed-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+
+    height: 10rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.particle-container {
+    height: 100vh;
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        background-color: #283043;
+    }
+
+    .navbar-brand {
+        height: 100%;
+        width: fit-content;
+    }
 }
 
 @media screen and (min-width: 320px) {
-  html {
-    box-sizing: border-box;
-    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-  }
+    html {
+        box-sizing: border-box;
+        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+    }
 }
 
 @media screen and (min-width: 1000px) {
-  html {
-    box-sizing: border-box;
-    font-size: 22px;
-  }
+    html {
+        box-sizing: border-box;
+        font-size: 22px;
+    }
 }

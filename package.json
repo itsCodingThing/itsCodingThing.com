@@ -1,24 +1,29 @@
 {
-  "name": "itscodingthingnext",
-  "version": "1.0.0",
-  "description": "my nextjs static website",
-  "main": "index.js",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@zeit/next-css": "^1.0.1",
-    "bootstrap": "^4.5.0",
-    "github-api": "^3.3.0",
-    "isomorphic-unfetch": "^3.0.0",
-    "next": "^9.4.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-particles-js": "^3.2.1",
-    "react-typed": "^1.2.0"
-  }
+    "name": "itscodingthingnext",
+    "version": "2.0.0",
+    "description": "my nextjs static website",
+    "main": "index.js",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@zeit/next-css": "^1.0.1",
+        "bootstrap": "^4.5.0",
+        "github-api": "^3.3.0",
+        "isomorphic-unfetch": "^3.0.0",
+        "next": "^13.5.6",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-tsparticles": "^2.12.2",
+        "tsparticles-preset-snow": "^2.12.0",
+        "tsparticles-slim": "^2.12.0",
+        "typed.js": "^2.0.16"
+    },
+    "devDependencies": {
+        "eslint-config-next": "^13.5.6"
+    }
 }
