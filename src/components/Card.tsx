@@ -1,9 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import fetchRepos from "../../utils/gh-api";
-
-function Card({ repo }) {
+export default function Card({ repo }) {
     const anchor = window.document.createElement("a");
     anchor.href = repo.html_url;
     anchor.target = "__blank";
@@ -78,70 +75,6 @@ function Card({ repo }) {
                         box-shadow: none;
                         transform: none;
                     }
-                }
-            `}</style>
-        </div>
-    );
-}
-
-export default function ProjectsPage() {
-    let [{ result: repos }, setState] = useState({ result: [] });
-
-    useEffect(() => {
-        let isCurrent = true;
-
-        async function getReposFromGithub() {
-            let data = await fetchRepos();
-
-            if (isCurrent) {
-                setState({ result: data });
-            }
-        }
-
-        getReposFromGithub();
-
-        return () => {
-            isCurrent = false;
-        };
-    }, []);
-
-    return (
-        <div className="projects">
-            {repos.length === 0 ? (
-                <div className="load">
-                    <p>Please wait...</p>
-                </div>
-            ) : (
-                <div className="grid">
-                    {repos.map((repo) => (
-                        <div className="grid-item" key={repo.id}>
-                            <Card repo={repo} />
-                        </div>
-                    ))}
-                </div>
-            )}
-            <style jsx>{`
-                .grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
-                    grid-gap: 1rem;
-                    padding: 0.5rem;
-                }
-
-                .load {
-                    padding-top: 5rem;
-                    width: 100%;
-                    height: 100%;
-                    text-align: center;
-                }
-
-                .load > p {
-                    color: white;
-                    font-size: 1.2rem;
-                }
-
-                .projects {
-                    padding: 5rem 2rem 0 2rem;
                 }
             `}</style>
         </div>
