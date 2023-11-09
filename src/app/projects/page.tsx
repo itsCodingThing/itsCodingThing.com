@@ -5,20 +5,10 @@ export default async function ProjectsPage() {
     let repos = await fetchRepos();
 
     return (
-        <div className="projects">
-            {repos.length === 0 ? (
-                <div className="load">
-                    <p>Please wait...</p>
-                </div>
-            ) : (
-                <div className="grid">
-                    {repos.map((repo) => (
-                        <div className="grid-item" key={repo.id}>
-                            <Card repo={repo} />
-                        </div>
-                    ))}
-                </div>
-            )}
-        </div>
+        <section className="grid grid-cols-5">
+            {repos.map((repo) => (
+                <Card key={repo.id} repo={repo} />
+            ))}
+        </section>
     );
 }
