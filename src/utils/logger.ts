@@ -1,12 +1,12 @@
 import pino from "pino";
+import prettyPino from "pino-pretty";
 
-const logger = pino({
-    transport: {
-        target: "pino-pretty",
-        options: {
-            colorize: true,
-        },
-    },
-});
+const logger = pino(
+    process.env.NODE_ENV === "development"
+        ? prettyPino({
+              colorize: true,
+          })
+        : undefined
+);
 
 export default logger;
