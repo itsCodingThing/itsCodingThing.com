@@ -11,6 +11,7 @@ export default function RenderParticles() {
 
     return (
         <Particles
+            className="relative -z-10"
             id="tsparticles"
             init={particlesInit}
             options={{
@@ -35,31 +36,6 @@ export default function RenderParticles() {
                         speed: 2,
                         direction: "top",
                         out_mode: "out",
-                    },
-                },
-                interactivity: {
-                    events: {
-                        onHover: {
-                            enable: true,
-                            mode: "bubble",
-                        },
-                        onClick: {
-                            enable: true,
-                            mode: "repulse",
-                        },
-                        resize: true,
-                    },
-                    modes: {
-                        bubble: {
-                            distance: 250,
-                            duration: 2,
-                            size: 0,
-                            opacity: 0,
-                        },
-                        repulse: {
-                            distance: 400,
-                            duration: 4,
-                        },
                     },
                 },
             }}

@@ -1,6 +1,6 @@
 "use client";
-import { useRef, useEffect } from "react";
 import Typed from "typed.js";
+import { useRef, useEffect } from "react";
 
 export default function MagicTyped() {
     const el = useRef(null);
@@ -20,7 +20,7 @@ export default function MagicTyped() {
     }, []);
 
     return (
-        <h1 className="typed">
+        <h1>
             <span ref={el}></span>
         </h1>
     );

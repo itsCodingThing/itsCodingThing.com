@@ -1,11 +1,12 @@
+import { Fragment } from "react";
 import MagicTyped from "@/components/MagicTyped";
-import RenderParticles from "@/components/RenderParticles";
 
 export default function HomePage() {
     return (
-        <section>
-            <MagicTyped />
-            <RenderParticles />
-        </section>
+        <Fragment>
+            <section className="h-[80vh] flex justify-center items-center text-white text-6xl">
+                <MagicTyped />
+            </section>
+        </Fragment>
     );
 }
