@@ -39,7 +39,7 @@ export async function fetchGithubRepos() {
             if (parse.success) {
                 logger.info(parse.data, "github repo");
 
-                // sparate showcase project and non-showcase
+                // separate showcase project and non-showcase
                 if (parse.data.topics.includes("showcase")) {
                     // filter showcase keyword from topics
                     parse.data.topics = parse.data.topics
@@ -51,7 +51,7 @@ export async function fetchGithubRepos() {
                     repos.others.push(parse.data);
                 }
             } else {
-                console.log(parse.error);
+                logger.error(parse.error, "github repo safe parsing error");
             }
         });
 
@@ -63,13 +63,17 @@ export async function fetchGithubRepos() {
                     const dom = new JSDOM(page);
 
                     const elem = dom.window.document.querySelector('meta[property="og:image"]');
-                    return { ...repo, og_image_url: elem?.getAttribute("content") ?? "" };
+                    const ogImageUrl = elem?.getAttribute("content") ?? "";
+
+                    logger.info(ogImageUrl, "github repo image url");
+
+                    return { ...repo, og_image_url: ogImageUrl };
                 })
             ),
             others: repos.others,
         };
     } catch (err) {
-        console.log(err);
+        logger.error(err, "github repo fetching error");
         return repos;
     }
 }
