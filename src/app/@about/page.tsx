@@ -3,7 +3,7 @@ import { robotoCondensed } from "@/components/Fonts";
 
 export default function AboutPage() {
     return (
-        <section className="h-screen grid grid-cols-2">
+        <section className="h-screen grid grid-cols-2 bg-orange-500">
             <div className="flex justify-center items-center">
                 <Image
                     className="border-8 border-yellow-500 rounded"
@@ -14,7 +14,7 @@ export default function AboutPage() {
                     priority={true}
                 />
             </div>
-            <div className={`text-[#f5deb3] flex flex-col justify-center ${robotoCondensed.className}`}>
+            <div className={`text-[#f5deb3] flex flex-col justify-center ${robotoCondensed.className} w-3/4`}>
                 <div className="mb-4 flex items-center">
                     <h1 className="text-8xl font-semibold">Hi,</h1>
                     <Image src="/assets/hi2.png" alt="sayHi" width={100} height={100} />

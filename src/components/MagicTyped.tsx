@@ -20,7 +20,7 @@ export default function MagicTyped() {
     }, []);
 
     return (
-        <h1>
+        <h1 className="text-6xl text-white">
             <span ref={el}></span>
         </h1>
     );
