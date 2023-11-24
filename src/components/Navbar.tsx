@@ -54,7 +54,7 @@ export default function Navbar(props: { children: ReactNode }) {
             <AnimatePresence>
                 {!navIsInView && (
                     <motion.div
-                        className={`bg-slate-100 w-fit fixed right-10 top-[40%] rounded-xl`}
+                        className={`bg-slate-100 w-fit fixed right-10 top-[40%] rounded-xl z-50`}
                         initial={{ y: "110vh" }}
                         animate={{ y: "0" }}
                         exit={{ y: "110vh" }}
@@ -67,7 +67,7 @@ export default function Navbar(props: { children: ReactNode }) {
             </AnimatePresence>
 
             <nav ref={navRef} className="flex flex-row justify-between px-5 mb-5 text-zinc-50">
-                <h1 className={`text-4xl ${adventPro.className}`}>{props.children}</h1>
+                <h1 className={`text-4xl ${adventPro.className} text-[#f5deb3]`}>{props.children}</h1>
 
                 <div className="flex flex-row">
                     <SocialLinks socials={socialLinks} />
