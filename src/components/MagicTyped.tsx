@@ -7,7 +7,7 @@ export default function MagicTyped() {
 
     useEffect(() => {
         const typed = new Typed(el.current, {
-            strings: ["I am a developer", "I am a techie", "I am a foodie", "itsCodingThing"],
+            strings: ["I am a dev", "I am a techie", "I am a foodie", "itsCodingThing"],
             typeSpeed: 80,
             backSpeed: 80,
             loop: true,
@@ -20,7 +20,7 @@ export default function MagicTyped() {
     }, []);
 
     return (
-        <h1 className="text-6xl text-[#f5deb3]">
+        <h1 className="text-4xl md:text-6xl text-[#f5deb3]">
             <span ref={el}></span>
         </h1>
     );

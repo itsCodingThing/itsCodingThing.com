@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { ReactNode, useRef } from "react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
-import { Fragment, ReactNode, useRef } from "react";
 import { adventPro } from "./Fonts";
 
 const socialLinks = [
@@ -50,29 +50,29 @@ export default function Navbar(props: { children: ReactNode }) {
     const navIsInView = useInView(navRef);
 
     return (
-        <Fragment>
-            <AnimatePresence>
-                {!navIsInView && (
-                    <motion.div
-                        className={`bg-slate-100 w-fit fixed right-10 top-[40%] rounded-xl z-50`}
-                        initial={{ y: "110vh" }}
-                        animate={{ y: "0" }}
-                        exit={{ y: "110vh" }}
-                    >
-                        <div className="flex flex-col items-center">
-                            <SocialLinks socials={socialLinks} />
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+        <nav ref={navRef} className="w-screen flex flex-row justify-center md:justify-between mb-5 px-2 text-zinc-50">
+            <h1 className={`text-4xl ${adventPro.className} text-[#f5deb3]`}>{props.children}</h1>
 
-            <nav ref={navRef} className="flex flex-row justify-between px-5 mb-5 text-zinc-50">
-                <h1 className={`text-4xl ${adventPro.className} text-[#f5deb3]`}>{props.children}</h1>
+            <div className="hidden md:flex flex-row">
+                <SocialLinks socials={socialLinks} />
+            </div>
 
-                <div className="flex flex-row">
-                    <SocialLinks socials={socialLinks} />
-                </div>
-            </nav>
-        </Fragment>
+            <div className="hidden md:block absolute">
+                <AnimatePresence>
+                    {!navIsInView && (
+                        <motion.div
+                            className={`bg-slate-100 w-fit fixed right-10 top-[40%] rounded-xl z-50`}
+                            initial={{ y: "110vh" }}
+                            animate={{ y: "0" }}
+                            exit={{ y: "110vh" }}
+                        >
+                            <div className="flex flex-col items-center">
+                                <SocialLinks socials={socialLinks} />
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+        </nav>
     );
 }

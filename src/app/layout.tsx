@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: ReactNode; projects: ReactNode; about: ReactNode }) {
     return (
         <html lang="en">
-            <body>
+            <body className="w-screen overflow-x-hidden">
                 <RenderParticles />
                 <Navbar>&lt;itscodingthing/&gt;</Navbar>
                 <main className="container mx-auto">
