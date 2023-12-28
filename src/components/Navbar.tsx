@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ReactNode, useRef } from "react";
-import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ReactNode } from "react";
 import { adventPro } from "./Fonts";
 
 const socialLinks = [
@@ -42,50 +41,9 @@ function SocialLinks({ socials }: { className?: string; socials: { href: string;
 }
 
 export default function Navbar(props: { children: ReactNode }) {
-    const navRef = useRef(null);
-    const navIsInView = useInView(navRef);
-
     return (
-        <nav ref={navRef} className="w-screen flex flex-row justify-center md:justify-between mb-5 px-2 text-zinc-50">
-            <h1 className={`text-4xl ${adventPro.className} text-[#f5deb3]`}>{props.children}</h1>
-
-            <div className="hidden md:flex flex-row">
-                <SocialLinks socials={socialLinks} />
-            </div>
-
-            <div className="hidden md:block absolute">
-                <AnimatePresence>
-                    {!navIsInView && (
-                        <motion.div
-                            className={`bg-slate-100 w-fit fixed right-10 top-[40%] rounded-xl z-50`}
-                            initial={{ y: "110vh" }}
-                            animate={{ y: "0" }}
-                            exit={{ y: "110vh" }}
-                        >
-                            <div className="flex flex-col items-center">
-                                <SocialLinks socials={socialLinks} />
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
-
-            <div className="md:hidden absolute">
-                <AnimatePresence>
-                    {!navIsInView && (
-                        <motion.div
-                            className={`bg-slate-100 w-fit fixed left-14 top-5 rounded-xl z-50`}
-                            initial={{ x: "110vh" }}
-                            animate={{ x: "0" }}
-                            exit={{ x: "110vh" }}
-                        >
-                            <div className="flex flex-row items-center">
-                                <SocialLinks socials={socialLinks} />
-                            </div>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
+        <nav className="w-screen flex flex-row justify-center md:justify-between mb-5 px-2 text-zinc-50">
+            <h1 className={`text-4xl ${adventPro.className} text-secondary`}>{props.children}</h1>
         </nav>
     );
 }

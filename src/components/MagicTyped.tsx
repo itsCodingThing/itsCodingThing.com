@@ -3,7 +3,7 @@ import Typed from "typed.js";
 import { useRef, useEffect } from "react";
 
 export default function MagicTyped() {
-    const el = useRef(null);
+    const el = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         const typed = new Typed(el.current, {
@@ -20,7 +20,7 @@ export default function MagicTyped() {
     }, []);
 
     return (
-        <h1 className="text-4xl md:text-6xl text-[#f5deb3]">
+        <h1 className="text-4xl md:text-6xl text-secondary">
             <span ref={el}></span>
         </h1>
     );
