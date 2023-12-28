@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ReactNode } from "react";
-import { adventPro } from "./Fonts";
+import { adventPro } from "@/utils/Fonts";
 
 const socialLinks = [
     {

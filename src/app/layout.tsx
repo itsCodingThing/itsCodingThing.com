@@ -13,9 +13,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: { children: ReactNode; projects: ReactNode; about: ReactNode }) {
     return (
-        <html lang="en">
-            <body className="w-screen bg-primary">
-                <main className="container mx-auto">{props.children}</main>
+        <html lang="en" className="scroll-smooth">
+            <body className="w-screen bg-primary overflow-x-hidden">
+                <main className="container mx-auto">
+                    {props.children}
+                    {props.about}
+                </main>
             </body>
         </html>
     );
