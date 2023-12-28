@@ -5,11 +5,13 @@ export default async function ProjectsPage() {
     const repos = await fetchGithubRepos();
 
     return (
-        <section className="mt-[10rem] flex justify-center">
-            <div className="md:w-[70rem] flex overflow-x-scroll">
-                {repos.showcase.map((repo) => (
-                    <Card key={repo.id} repo={repo} />
-                ))}
+        <section className="mt-[5rem] flex justify-center">
+            <div className="md:w-[70rem]">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+                    {repos.showcase.map((repo) => (
+                        <Card key={repo.id} repo={repo} />
+                    ))}
+                </div>
             </div>
         </section>
     );

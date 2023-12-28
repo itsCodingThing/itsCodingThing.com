@@ -17,13 +17,16 @@ export const metadata: Metadata = {
 export default function RootLayout(props: { children: ReactNode; projects: ReactNode; about: ReactNode }) {
     return (
         <html lang="en">
-            <body className="w-screen overflow-x-hidden">
+            <body className="w-screen relative overflow-x-hidden">
                 <RenderParticles />
                 <Navbar>&lt;itscodingthing/&gt;</Navbar>
                 <main className="container mx-auto">
                     {props.children}
                     {props.about}
                     {props.projects}
+                    <footer className="mt-16 h-80">
+                        <h1>footer</h1>
+                    </footer>
                 </main>
             </body>
         </html>

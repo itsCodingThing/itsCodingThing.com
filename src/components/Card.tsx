@@ -37,7 +37,7 @@ export default function Card({ repo }: CardProps) {
                     placeholder="empty"
                 />
                 <div className="text-[#f5deb3] p-2">
-                    <h2 className="text-2xl font-bold mb-2">{repo.name}</h2>
+                    <h2 className="text-2xl font-bold mb-2 text-wrap">{repo.name}</h2>
                     <p className="mb-2">{repo.description}</p>
                 </div>
                 {isHover ? (

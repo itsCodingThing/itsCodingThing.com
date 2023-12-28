@@ -4,7 +4,7 @@ import { robotoCondensed } from "@/components/Fonts";
 export default function AboutPage() {
     return (
         <section className="md:h-screen flex justify-center items-center">
-            <div className="md:p-2 md:w-3/4 h-3/4 grid md:grid-cols-2 bg-zinc-600/30 md:rounded-xl backdrop-blur-sm shadow-xl">
+            <div className="p-6 md:w-3/4 h-3/4 grid md:grid-cols-2 bg-zinc-600/30 md:rounded-xl backdrop-blur-sm shadow-xl">
                 <div className="flex justify-center items-center">
                     <Image
                         className="border-8 border-yellow-500 rounded"

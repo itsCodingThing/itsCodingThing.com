@@ -29,18 +29,14 @@ const socialLinks = [
     },
 ];
 
-function LinkBox({ children }: { children: ReactNode }) {
-    return <div className="hover:bg-white hover:text-black mx-3 p-3 even:mx-0">{children}</div>;
-}
-
-function SocialLinks({ socials }: { socials: { href: string; src: string; alt: string }[] }) {
+function SocialLinks({ socials }: { className?: string; socials: { href: string; src: string; alt: string }[] }) {
     return socials.map((social, i) => {
         return (
-            <LinkBox key={i}>
+            <div key={i} className={"hover:text-black mx-3 p-3 even:mx-0"}>
                 <Link href={social.href} target="_blank" rel="noopener noreferrer">
                     <Image src={social.src} alt={social.alt} width={40} height={40} />
                 </Link>
-            </LinkBox>
+            </div>
         );
     });
 }
@@ -67,6 +63,23 @@ export default function Navbar(props: { children: ReactNode }) {
                             exit={{ y: "110vh" }}
                         >
                             <div className="flex flex-col items-center">
+                                <SocialLinks socials={socialLinks} />
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
+            <div className="md:hidden absolute">
+                <AnimatePresence>
+                    {!navIsInView && (
+                        <motion.div
+                            className={`bg-slate-100 w-fit fixed left-14 top-5 rounded-xl z-50`}
+                            initial={{ x: "110vh" }}
+                            animate={{ x: "0" }}
+                            exit={{ x: "110vh" }}
+                        >
+                            <div className="flex flex-row items-center">
                                 <SocialLinks socials={socialLinks} />
                             </div>
                         </motion.div>

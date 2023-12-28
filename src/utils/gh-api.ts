@@ -27,18 +27,16 @@ export async function fetchGithubRepos() {
     const repos: { showcase: GithubRepo[]; others: GithubRepo[] } = { showcase: [], others: [] };
 
     try {
-        const gitResponse = await gh.request("GET /user/repos", {
+        const githubResponses = await gh.request("GET /user/repos", {
             headers: {
                 "X-GitHub-Api-Version": "2022-11-28",
             },
         });
 
-        gitResponse.data.forEach((repo) => {
+        githubResponses.data.forEach((repo) => {
             const parse = GithubRepo.safeParse(repo);
 
             if (parse.success) {
-                logger.info(parse.data, "github repo");
-
                 // separate showcase project and non-showcase
                 if (parse.data.topics.includes("showcase")) {
                     // filter showcase keyword from topics
@@ -64,8 +62,6 @@ export async function fetchGithubRepos() {
 
                     const elem = dom.window.document.querySelector('meta[property="og:image"]');
                     const ogImageUrl = elem?.getAttribute("content") ?? "";
-
-                    logger.info(ogImageUrl, "github repo image url");
 
                     return { ...repo, og_image_url: ogImageUrl };
                 })
