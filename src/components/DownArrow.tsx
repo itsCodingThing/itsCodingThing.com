@@ -1,12 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { DownArrowIcon, UpArrowIcon } from "./Icons";
 
-export default function DownArrow() {
+type THref = `#${string}`;
+
+export default function ScollArrow({ to, type = "down" }: { to: THref; type?: "up" | "down" }) {
     return (
         <motion.a
-            className="cursor-pointer h-[1.5rem] w-[1.5rem] absolute bottom-10 left-1/2 border-secondary border-r-2 border-b-2"
-            href="#about"
+            href={to}
+            className="cursor-pointer text-3xl text-secondary absolute bottom-10 left-1/2"
             transition={{
                 ease: "easeInOut",
                 repeat: Infinity,
@@ -14,9 +17,10 @@ export default function DownArrow() {
             }}
             initial={{
                 y: 0,
-                rotate: 45,
             }}
-            animate={{ y: [0, 10, 0], rotate: 45 }}
-        />
+            animate={{ y: [0, 10, 0] }}
+        >
+            {type === "down" ? <DownArrowIcon /> : <UpArrowIcon />}
+        </motion.a>
     );
 }

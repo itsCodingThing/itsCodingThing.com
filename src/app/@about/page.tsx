@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { robotoCondensed } from "@/utils/Fonts";
+import ScollArrow from "@/components/DownArrow";
+import { LinkButton } from "@/components/Buttons";
 
-export default function AboutPage() {
+export default function AboutSection() {
     return (
-        <section id="about" className="h-screen flex justify-center items-center">
+        <section id="about" className="h-screen flex justify-center items-center relative">
             <div className="md:w-3/4 h-3/4 grid xl:grid-cols-2">
                 <div className="flex justify-center items-center">
                     <div className="h-fit p-2 rounded-full border-4 border-secondary">
@@ -15,7 +17,6 @@ export default function AboutPage() {
                                 quality={100}
                                 priority
                                 fill
-                                sizes="100px"
                                 style={{
                                     objectFit: "cover",
                                 }}
@@ -44,17 +45,11 @@ export default function AboutPage() {
                     </div>
                     <br />
                     <div className="grid place-items-center">
-                        <a
-                            href="https://linkedin.com/in/itscodingthing"
-                            className="max-w-fit px-4 py-2 m-2 border-2 border-secondary hover:bg-secondary hover:text-primary"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            HIRE ME
-                        </a>
+                        <LinkButton href="https://linkedin.com/in/itscodingthing">HIRE ME</LinkButton>
                     </div>
                 </div>
             </div>
+            <ScollArrow to="#socials" />
         </section>
     );
 }

@@ -1,7 +1,7 @@
 import Card from "@/components/Card";
 import { fetchGithubRepos } from "@/utils/gh-api";
 
-export default async function ProjectsPage() {
+export default async function ProjectsSection() {
     const repos = await fetchGithubRepos();
 
     return (

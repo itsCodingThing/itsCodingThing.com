@@ -1,22 +1,13 @@
-"use client";
-
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import DownArrow from "@/components/DownArrow";
 import MagicTyped from "@/components/MagicTyped";
+import ScollArrow from "@/components/DownArrow";
 
 export default function HomePage() {
-    const ref = useRef(null);
-    const inView = useInView(ref);
-
     return (
-        <section className="min-h-screen relative">
+        <section id="intro" className="min-h-screen relative">
             <div className="h-screen grid place-items-center">
-                <div ref={ref}>
-                    <MagicTyped />
-                </div>
+                <MagicTyped />
             </div>
-            {inView ? <DownArrow /> : null}
+            <ScollArrow to="#about" />
         </section>
     );
 }

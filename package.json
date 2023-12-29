@@ -3,7 +3,7 @@
     "version": "2.0.0",
     "description": "my nextjs static website",
     "scripts": {
-        "dev": "next",
+        "dev": "next --turbo",
         "build": "next build",
         "start": "next start",
         "lint": "next lint"
@@ -19,6 +19,7 @@
         "puppeteer": "^21.5.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
+        "react-icons": "^4.12.0",
         "styled-components": "^6.1.0",
         "typed.js": "^2.0.16",
         "zod": "^3.22.4"

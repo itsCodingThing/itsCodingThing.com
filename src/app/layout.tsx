@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
-import "../styles/tailwind.css";
+import "@/styles/tailwind.css";
+import "@/styles/style.css";
 
 export const metadata: Metadata = {
     title: "itsCodingThing",
@@ -11,13 +12,23 @@ export const metadata: Metadata = {
     },
 };
 
-export default function RootLayout(props: { children: ReactNode; projects: ReactNode; about: ReactNode }) {
+interface RootLayoutProps {
+    children: ReactNode;
+    projects: ReactNode;
+    about: ReactNode;
+    quote: ReactNode;
+    socials: ReactNode;
+}
+
+export default function RootLayout(props: RootLayoutProps) {
     return (
         <html lang="en" className="scroll-smooth">
             <body className="w-screen bg-primary overflow-x-hidden">
                 <main className="container mx-auto">
                     {props.children}
                     {props.about}
+                    {props.socials}
+                    {props.quote}
                 </main>
             </body>
         </html>
