@@ -1,9 +1,9 @@
 "use client";
 import Typed from "typed.js";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ElementRef } from "react";
 
 export default function MagicTyped() {
-    const el = useRef<HTMLSpanElement>(null);
+    const el = useRef<ElementRef<"span">>(null);
 
     useEffect(() => {
         const typed = new Typed(el.current, {
