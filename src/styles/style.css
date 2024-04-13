@@ -25,3 +25,13 @@ body {
         opacity: 0;
     }
 }
+
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.scroll-container > body > section {
+    scroll-snap-align: start;
+}

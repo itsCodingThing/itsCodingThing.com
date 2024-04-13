@@ -22,14 +22,12 @@ interface RootLayoutProps {
 
 export default function RootLayout(props: RootLayoutProps) {
     return (
-        <html lang="en" className="scroll-smooth">
-            <body className="w-screen bg-primary overflow-x-hidden">
-                <main className="container mx-auto">
-                    {props.children}
-                    {props.about}
-                    {props.socials}
-                    {props.quote}
-                </main>
+        <html lang="en" className="scroll-smooth scroll-container">
+            <body className="w-screen bg-primary container mx-auto">
+                {props.children}
+                {props.about}
+                {props.socials}
+                {props.quote}
             </body>
         </html>
     );
