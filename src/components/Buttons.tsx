@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "./Icons";
 
@@ -25,7 +25,11 @@ export function ToggleButton() {
         setToggle(!darkMode);
       }}
     >
-      {darkMode ? <MoonIcon className={`h-5 w-5 rounded-full absolute top-1/2 right-0 -translate-y-1/2`} /> : <SunIcon className={`h-5 w-5 rounded-full absolute top-1/2 left-0 -translate-y-1/2`} />}
+      {darkMode ? (
+        <MoonIcon className={`h-5 w-5 rounded-full absolute top-1/2 right-0 -translate-y-1/2`} />
+      ) : (
+        <SunIcon className={`h-5 w-5 rounded-full absolute top-1/2 left-0 -translate-y-1/2`} />
+      )}
     </div>
-  )
+  );
 }

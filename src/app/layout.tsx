@@ -1,6 +1,6 @@
-import { Metadata } from "next";
-import { ReactNode } from "react";
-import { ToggleButton } from "@/components/Buttons";
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
+
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
 
@@ -24,9 +24,6 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en" className="scroll-smooth scroll-container">
       <body className="w-screen bg-primary container mx-auto">
-        <div>
-          <ToggleButton />
-        </div>
         {props.children}
         {props.about}
         {props.socials}
