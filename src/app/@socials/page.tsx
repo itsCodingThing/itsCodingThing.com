@@ -1,5 +1,5 @@
 import { LinkButton } from "@/components/Buttons";
-import ScollArrow from "@/components/DownArrow";
+import ScollArrow from "@/components/scroll-arrow";
 
 export default function Socials() {
   return (
@@ -12,7 +12,9 @@ export default function Socials() {
           <LinkButton href="https://twitter.com/bhanu1729">TWITTER</LinkButton>
         </div>
       </div>
-      <ScollArrow to="#quote" />
+      <div className="absolute bottom-10 left-1/2">
+        <ScollArrow to="#quote" />
+      </div>
     </section>
   );
 }

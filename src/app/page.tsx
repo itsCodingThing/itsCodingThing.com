@@ -1,4 +1,4 @@
-import ScollArrow from "@/components/DownArrow";
+import ScollArrow from "@/components/scroll-arrow";
 import MagicTyping from "@/components/MagicTyping";
 
 export default function HomePage() {

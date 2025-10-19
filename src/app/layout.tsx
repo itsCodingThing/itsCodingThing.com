@@ -23,7 +23,7 @@ interface RootLayoutProps {
 export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en" className="scroll-smooth scroll-container">
-      <body className="w-screen bg-primary container mx-auto">
+      <body className="w-screen container mx-auto">
         {props.children}
         {props.about}
         {props.socials}

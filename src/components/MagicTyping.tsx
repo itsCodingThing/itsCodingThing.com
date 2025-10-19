@@ -2,20 +2,20 @@
 
 import { useEffect, useState } from "react";
 
-interface IMagicTypingProps {
+interface MagicTypingProps {
   lines: string[];
   smartBackspace?: boolean;
 }
 
-interface IMagicTypingState {
+interface MagicTypingState {
   text: string;
   index: number;
   reverse: boolean;
 }
 
-export default function MagicTyping(props: IMagicTypingProps) {
+export default function MagicTyping(props: MagicTypingProps) {
   const { lines } = props;
-  const [state, setState] = useState<IMagicTypingState>({ text: "", index: 0, reverse: false });
+  const [state, setState] = useState<MagicTypingState>({ text: "", index: 0, reverse: false });
 
   useEffect(() => {
     const interval = setInterval(() => {

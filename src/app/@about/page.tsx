@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { robotoCondensed } from "@/utils/Fonts";
-import ScollArrow from "@/components/DownArrow";
+import { robotoCondensed } from "@/utils/fonts";
+import ScollArrow from "@/components/scroll-arrow";
 import { LinkButton } from "@/components/Buttons";
 
 export default function AboutSection() {
@@ -33,13 +33,13 @@ export default function AboutSection() {
           </div>
           <div className="text-lg font-medium my-2">
             <p>
-              a passionate <span className="text-xl font-bold mb-2">&lt;FullStackDeveloper&#47;&gt;</span>
-              , always eager to embrace new challenges in the dynamic world of software development.
+              a passionate <span className="text-xl font-bold mb-2">&lt;FullStackDeveloper&#47;&gt;</span>, always eager
+              to embrace new challenges in the dynamic world of software development.
             </p>
             <p className="mt-2">
-              My genuine enthusiasm for learning drives me to stay abreast of the latest tech trends. With
-              a robust work ethic, I strive to deliver innovative solutions, making technology exploration
-              not just a hobby but a way of life.
+              My genuine enthusiasm for learning drives me to stay abreast of the latest tech trends. With a robust work
+              ethic, I strive to deliver innovative solutions, making technology exploration not just a hobby but a way
+              of life.
             </p>
           </div>
           <div className="grid place-items-center">
