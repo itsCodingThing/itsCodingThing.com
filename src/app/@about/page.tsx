@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { robotoCondensed } from "@/utils/fonts";
 import ScollArrow from "@/components/scroll-arrow";
-import { LinkButton } from "@/components/Buttons";
+import { ExternalLinkButton } from "@/components/buttons";
 
 export default function AboutSection() {
   return (
@@ -43,7 +43,7 @@ export default function AboutSection() {
             </p>
           </div>
           <div className="grid place-items-center">
-            <LinkButton href="https://linkedin.com/in/itscodingthing">HIRE ME</LinkButton>
+            <ExternalLinkButton href="https://linkedin.com/in/itscodingthing">HIRE ME</ExternalLinkButton>
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
@@ -12,15 +11,7 @@ export const metadata: Metadata = {
   },
 };
 
-interface RootLayoutProps {
-  children: ReactNode;
-  projects: ReactNode;
-  about: ReactNode;
-  quote: ReactNode;
-  socials: ReactNode;
-}
-
-export default function RootLayout(props: RootLayoutProps) {
+export default function RootLayout(props: LayoutProps<"/">) {
   return (
     <html lang="en" className="scroll-smooth scroll-container">
       <body className="w-screen container mx-auto">

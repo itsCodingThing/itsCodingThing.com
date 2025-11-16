@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MoonIcon, SunIcon } from "./Icons";
 
-export function LinkButton({ href, children }: { href: string; children: string }) {
+export function ExternalLinkButton({ href, children }: { href: string; children: string }) {
   return (
     <a
       href={href}
