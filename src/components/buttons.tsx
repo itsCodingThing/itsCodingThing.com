@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { MoonIcon, SunIcon } from "./Icons";
+import { MoonIcon, SunIcon } from "./icons";
 
 export function ExternalLinkButton({ href, children }: { href: string; children: string }) {
   return (

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import { adventPro } from "@/utils/fonts";
 
 const socialLinks = [

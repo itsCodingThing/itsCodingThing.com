@@ -1,4 +1,4 @@
-import { DownArrowIcon, UpArrowIcon } from "./Icons";
+import { DownArrowIcon, UpArrowIcon } from "./icons";
 
 type Href = `#${string}`;
 
