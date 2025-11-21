@@ -1,0 +1,30 @@
+"use client";
+
+import { MoonIcon, SunIcon } from "../icons";
+import { useThemeMode } from "./context";
+
+export default function ThemeToggle() {
+	const { themeMode, setThemeMode } = useThemeMode();
+
+	return (
+		<button
+			type="button"
+			className="cursor-pointer border-2 rounded-full dark:border-white fixed top-0 right-0 p-1 m-1"
+			onClick={() => {
+				setThemeMode((mode) => {
+					if (mode === "dark") {
+						return "light";
+					}
+
+					return "dark";
+				});
+			}}
+		>
+			{themeMode === "light" ? (
+				<MoonIcon className="w-15 h-15 animate-wiggle" />
+			) : (
+				<SunIcon className="dark:text-white w-15 h-15 animate-wiggle" />
+			)}
+		</button>
+	);
+}

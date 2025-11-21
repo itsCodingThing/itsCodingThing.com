@@ -1,20 +1,21 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import {
-	createContext,
-	type ReactNode,
-	useContext,
-	useEffect,
-	useState,
-} from "react";
+import { atom, Provider as JotaiProvider, useAtom } from "jotai";
+import { type ReactNode, useSyncExternalStore } from "react";
 
-const mode = "dark";
+const Themes = ["dark", "light"] as const;
+type Theme = (typeof Themes)[number];
 
-const ThemeContext = createContext(mode);
+const theme = atom<Theme>("dark");
 
 interface ThemeProps {
 	children: ReactNode;
+}
+
+export function useThemeMode() {
+	const [themeMode, setThemeMode] = useAtom(theme);
+
+	return { themeMode, setThemeMode };
 }
 
 export function useThemeChange() {
@@ -41,22 +42,6 @@ export function useThemeChange() {
 	return change;
 }
 
-export function useThemeMode() {
-	const mode = useContext(ThemeContext);
-	return mode;
-}
-
 export function ThemeProvider(props: ThemeProps) {
-	const [themeMode, setThemeMode] = useState(mode);
-
-	useEffect(() => {
-		const local = localStorage.getItem("theme") ?? "dark";
-		setThemeMode(local);
-	}, []);
-
-	return (
-		<ThemeContext.Provider value={themeMode}>
-			{props.children}
-		</ThemeContext.Provider>
-	);
+	return <JotaiProvider>{props.children}</JotaiProvider>;
 }

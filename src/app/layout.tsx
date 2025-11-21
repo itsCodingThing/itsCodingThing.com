@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-toggle/context";
+import { ThemeProvider } from "@/components/theme-mode/context";
 
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
+import ThemeMode from "@/components/theme-mode/theme-mode";
 
 export const metadata: Metadata = {
 	title: "itsCodingThing",
@@ -15,13 +16,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: LayoutProps<"/">) {
 	return (
-		<html lang="en" className="scroll-smooth scroll-container dark">
-			<body className="w-screen container mx-auto">
+		<html lang="en" className="scroll-smooth scroll-container">
+			<body>
 				<ThemeProvider>
-					{props.children}
-					{props.about}
-					{props.socials}
-					{props.quote}
+					<ThemeMode>
+						<div className="dark:bg-black">
+							<div className="w-screen container mx-auto">
+								{props.children}
+								{props.about}
+								{props.socials}
+								{props.quote}
+							</div>
+						</div>
+					</ThemeMode>
 				</ThemeProvider>
 			</body>
 		</html>

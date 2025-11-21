@@ -1,6 +1,6 @@
 import ScollArrow from "@/components/scroll-arrow";
 import MagicTyping from "@/components/magic-typing";
-import ThemeToggle from "@/components/theme-toggle/theme-toggle";
+import ThemeToggle from "@/components/theme-mode/theme-toggle";
 
 export default function HomePage() {
 	return (
