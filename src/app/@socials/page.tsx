@@ -16,7 +16,7 @@ export default function Socials() {
 					<ExternalLink href="https://github.com/itsCodingThing">
 						GITHUB
 					</ExternalLink>
-					<ExternalLink href="https://twitter.com/bhanu1729">
+					<ExternalLink href="https://twitter.com/itscodingthing">
 						TWITTER
 					</ExternalLink>
 				</div>
