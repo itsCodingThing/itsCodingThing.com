@@ -7,7 +7,7 @@ export default function AboutSection() {
 	return (
 		<section
 			id="about"
-			className="h-screen flex justify-center items-center relative dark:text-white"
+			className="h-screen snap-start flex justify-center items-center relative dark:text-white"
 		>
 			<div className="md:w-3/4 h-3/4 grid xl:grid-cols-2">
 				<div className="flex justify-center items-center">

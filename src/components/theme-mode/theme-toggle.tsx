@@ -9,7 +9,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			type="button"
-			className="cursor-pointer border-2 rounded-full dark:border-white fixed top-0 right-0 p-1 m-1"
+			className="cursor-pointer border-2 rounded-full dark:border-white fixed top-0 right-0 m-3"
 			onClick={() => {
 				setThemeMode((mode) => {
 					if (mode === "dark") {
@@ -23,7 +23,7 @@ export default function ThemeToggle() {
 			{themeMode === "light" ? (
 				<MoonIcon className="w-15 h-15 animate-wiggle" />
 			) : (
-				<SunIcon className="dark:text-white w-15 h-15 animate-wiggle" />
+				<SunIcon className="text-white w-15 h-15 animate-wiggle" />
 			)}
 		</button>
 	);

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-mode/context";
+import ThemeMode from "@/components/theme-mode/theme-mode";
 
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
-import ThemeMode from "@/components/theme-mode/theme-mode";
 
 export const metadata: Metadata = {
 	title: "itsCodingThing",
@@ -16,17 +16,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: LayoutProps<"/">) {
 	return (
-		<html lang="en" className="scroll-smooth scroll-container">
+		<html lang="en">
 			<body>
 				<ThemeProvider>
 					<ThemeMode>
-						<div className="dark:bg-black">
-							<div className="w-screen container mx-auto">
-								{props.children}
-								{props.about}
-								{props.socials}
-								{props.quote}
-							</div>
+						<div className="h-screen overflow-y-scroll container mx-auto snap-y snap-mandatory scroll-smooth no-scrollbar">
+							{props.children}
+							{props.about}
+							{props.socials}
+							{props.quote}
 						</div>
 					</ThemeMode>
 				</ThemeProvider>

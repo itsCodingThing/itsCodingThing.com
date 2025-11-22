@@ -3,7 +3,10 @@ import ScollArrow from "@/components/scroll-arrow";
 
 export default function Socials() {
 	return (
-		<section id="socials" className="min-h-screen relative dark:text-white">
+		<section
+			id="socials"
+			className="min-h-svh relative dark:text-white snap-start"
+		>
 			<div className="h-screen flex flex-col items-center justify-center">
 				<p className="text-secondary text-2xl mb-6 text-center">FIND ME</p>
 				<div className="flex flex-row justify-center gap-4">

@@ -6,5 +6,9 @@ import { useThemeMode } from "./context";
 export default function ThemeMode({ children }: { children: ReactNode }) {
 	const { themeMode } = useThemeMode();
 
-	return <div className={themeMode}>{children}</div>;
+	return (
+		<div className={themeMode === "light" ? "light" : "dark bg-black"}>
+			{children}
+		</div>
+	);
 }

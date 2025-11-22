@@ -7,7 +7,7 @@ export default async function QuoteSection() {
 	return (
 		<section
 			id="quote"
-			className="min-h-screen relative md:px-10 dark:text-white"
+			className="min-h-screen relative md:px-10 dark:text-white snap-start"
 		>
 			<div className="h-screen grid place-items-center">
 				<div className="text-secondary text-center p-2 md:text-left md:p-0">
