@@ -9,7 +9,7 @@ export default function ThemeToggle() {
 	return (
 		<button
 			type="button"
-			className="cursor-pointer border-2 rounded-full dark:border-white fixed top-0 right-0 m-3"
+			className="cursor-pointer border-2 rounded-full dark:border-white fixed top-0 right-0 z-999 m-3"
 			onClick={() => {
 				setThemeMode((mode) => {
 					if (mode === "dark") {
