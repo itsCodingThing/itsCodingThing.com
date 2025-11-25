@@ -1,7 +1,9 @@
+import { connection } from "next/server";
 import { getRandomQuote } from "@/utils/firebase";
 import ScollArrow from "@/components/scroll-arrow";
 
 export default async function QuoteSection() {
+	await connection();
 	const data = await getRandomQuote();
 
 	return (
