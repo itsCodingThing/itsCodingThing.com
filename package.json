@@ -1,6 +1,6 @@
 {
-  "name": "itscodingthingnext",
-  "version": "2.0.0",
+  "name": "itscodingthing",
+  "version": "3.0.0",
   "description": "my nextjs static website",
   "scripts": {
     "dev": "next --turbo",

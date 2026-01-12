@@ -1,34 +1,20 @@
 import type { Metadata } from "next";
-import { ThemeProvider } from "@/components/theme-mode/context";
-import ThemeMode from "@/components/theme-mode/theme-mode";
-
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
 
 export const metadata: Metadata = {
-  title: "itsCodingThing",
-  description:
-    "my personal website for display my creativity and give an idea about me",
-  icons: {
-    shortcut: "/assets/itscodingthinglogocircle.png",
-  },
+  title: "itsCodingThing - Terminal Portfolio",
+  description: "Interactive terminal portfolio showcasing full-stack development skills",
 };
 
-export default function RootLayout(props: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body>
-        <ThemeProvider>
-          <ThemeMode>
-            <div className="h-screen overflow-y-scroll container mx-auto snap-y snap-mandatory scroll-smooth no-scrollbar">
-              {props.children}
-              {props.about}
-              {props.socials}
-              {props.quote}
-            </div>
-          </ThemeMode>
-        </ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
