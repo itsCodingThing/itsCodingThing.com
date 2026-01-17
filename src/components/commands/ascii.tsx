@@ -2,23 +2,24 @@ import { AvailableCmds, Command } from "@/utils/cmds";
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
+import { ascii } from "@/utils/text";
 
-interface DateCommand extends Command {
-	cmd: AvailableCmds["date"];
+interface AsciiCommand extends Command {
+	cmd: AvailableCmds["ascii"];
 }
 
-const DateCmdAtom = atom<DateCommand | null>((get) => {
+const AsciiCmdAtom = atom<AsciiCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "date") {
-		return cmd as DateCommand;
+	if (cmd?.cmd === "ascii") {
+		return cmd as AsciiCommand;
 	}
 
 	return null;
 });
 
-export default function DateCmd() {
-	const cmd = useAtomValue(DateCmdAtom);
+export default function AsciiCmd() {
+	const cmd = useAtomValue(AsciiCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
@@ -29,15 +30,10 @@ export default function DateCmd() {
 					index: prev.index + 1,
 					history: [
 						...prev.history,
-						{
-							executedCmd: cmd,
-							input: cmd.input,
-							output: new Date().toString(),
-						},
+						{ executedCmd: cmd, input: cmd.input, output: ascii },
 					],
 				};
 			});
-			// Clear command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);

@@ -21,6 +21,7 @@ const LsCmdAtom = atom<LsCommand | null>((get) => {
 export default function LsCmd() {
 	const cmd = useAtomValue(LsCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
+	const setCmd = useSetAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
@@ -53,8 +54,10 @@ export default function LsCmd() {
 					],
 				};
 			});
+			// Clear the command atom after execution
+			setCmd(null);
 		}
-	}, [cmd]);
+	}, [cmd, setCmdHistory, setCmd]);
 
 	return null;
 }

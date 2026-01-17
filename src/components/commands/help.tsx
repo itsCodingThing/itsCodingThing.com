@@ -21,6 +21,7 @@ const HelpCmdAtom = atom<HelpCommand | null>((get) => {
 export default function HelpCmd() {
 	const cmd = useAtomValue(HelpCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
+	const setCmd = useSetAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
@@ -33,8 +34,10 @@ export default function HelpCmd() {
 					],
 				};
 			});
+			// Clear the command atom after execution
+			setCmd(null);
 		}
-	}, [cmd]);
+	}, [cmd, setCmdHistory, setCmd]);
 
 	return null;
 }

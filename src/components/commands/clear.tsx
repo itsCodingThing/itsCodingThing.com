@@ -20,6 +20,7 @@ const ClearCmdAtom = atom<ClearCommand | null>((get) => {
 export default function ClearCmd() {
 	const cmd = useAtomValue(ClearCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
+	const setCmd = useSetAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
@@ -29,8 +30,10 @@ export default function ClearCmd() {
 					history: [{ executedCmd: cmd, input: cmd.input, output: "" }],
 				};
 			});
+			// Clear the command atom after execution
+			setCmd(null);
 		}
-	}, [cmd]);
+	}, [cmd, setCmdHistory, setCmd]);
 
 	return null;
 }

@@ -2,23 +2,24 @@ import { AvailableCmds, Command } from "@/utils/cmds";
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
+import { starwars } from "@/utils/text";
 
-interface DateCommand extends Command {
-	cmd: AvailableCmds["date"];
+interface StarwarsCommand extends Command {
+	cmd: AvailableCmds["starwars"];
 }
 
-const DateCmdAtom = atom<DateCommand | null>((get) => {
+const StarwarsCmdAtom = atom<StarwarsCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "date") {
-		return cmd as DateCommand;
+	if (cmd?.cmd === "starwars") {
+		return cmd as StarwarsCommand;
 	}
 
 	return null;
 });
 
-export default function DateCmd() {
-	const cmd = useAtomValue(DateCmdAtom);
+export default function StarwarsCmd() {
+	const cmd = useAtomValue(StarwarsCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
@@ -29,15 +30,10 @@ export default function DateCmd() {
 					index: prev.index + 1,
 					history: [
 						...prev.history,
-						{
-							executedCmd: cmd,
-							input: cmd.input,
-							output: new Date().toString(),
-						},
+						{ executedCmd: cmd, input: cmd.input, output: starwars },
 					],
 				};
 			});
-			// Clear command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);

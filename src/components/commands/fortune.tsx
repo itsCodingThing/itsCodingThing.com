@@ -18,9 +18,10 @@ const FortuneCmdAtom = atom<FortuneCommand | null>((get) => {
 	return null;
 });
 
-export default function DateCmd() {
+export default function FortuneCmd() {
 	const cmd = useAtomValue(FortuneCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
+	const setCmd = useSetAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
@@ -37,8 +38,10 @@ export default function DateCmd() {
 					],
 				};
 			});
+			// Clear the command atom after execution
+			setCmd(null);
 		}
-	}, [cmd]);
+	}, [cmd, setCmdHistory, setCmd]);
 
 	return null;
 }

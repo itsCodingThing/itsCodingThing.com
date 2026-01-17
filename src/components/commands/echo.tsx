@@ -3,27 +3,28 @@ import { atom, useAtomValue, useSetAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
 
-interface DateCommand extends Command {
-	cmd: AvailableCmds["date"];
+interface EchoCommand extends Command {
+	cmd: AvailableCmds["echo"];
 }
 
-const DateCmdAtom = atom<DateCommand | null>((get) => {
+const EchoCmdAtom = atom<EchoCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "date") {
-		return cmd as DateCommand;
+	if (cmd?.cmd === "echo") {
+		return cmd as EchoCommand;
 	}
 
 	return null;
 });
 
-export default function DateCmd() {
-	const cmd = useAtomValue(DateCmdAtom);
+export default function EchoCmd() {
+	const cmd = useAtomValue(EchoCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
+			const output = cmd.args.join(" ");
 			setCmdHistory((prev) => {
 				return {
 					index: prev.index + 1,
@@ -32,12 +33,11 @@ export default function DateCmd() {
 						{
 							executedCmd: cmd,
 							input: cmd.input,
-							output: new Date().toString(),
+							output,
 						},
 					],
 				};
 			});
-			// Clear command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);

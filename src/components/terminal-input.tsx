@@ -14,7 +14,12 @@ export default function TerminalInput() {
 	}, []);
 
 	const handleOnChange: ComponentProps<"input">["onChange"] = (e) => {
-		terminal.setInput(e.currentTarget.value);
+		const value = e.currentTarget.value;
+		terminal.setInput(value);
+		// Save pending input on every keystroke
+		if (value.trim() !== "") {
+			terminal.setPendingInput?.(value);
+		}
 	};
 
 	const handleOnKeyDown: ComponentProps<"input">["onKeyDown"] = (e) => {

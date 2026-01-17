@@ -2,23 +2,24 @@ import { AvailableCmds, Command } from "@/utils/cmds";
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
+import { sudo } from "@/utils/text";
 
-interface DateCommand extends Command {
-	cmd: AvailableCmds["date"];
+interface SudoCommand extends Command {
+	cmd: AvailableCmds["sudo"];
 }
 
-const DateCmdAtom = atom<DateCommand | null>((get) => {
+const SudoCmdAtom = atom<SudoCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "date") {
-		return cmd as DateCommand;
+	if (cmd?.cmd === "sudo") {
+		return cmd as SudoCommand;
 	}
 
 	return null;
 });
 
-export default function DateCmd() {
-	const cmd = useAtomValue(DateCmdAtom);
+export default function SudoCmd() {
+	const cmd = useAtomValue(SudoCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
@@ -29,15 +30,10 @@ export default function DateCmd() {
 					index: prev.index + 1,
 					history: [
 						...prev.history,
-						{
-							executedCmd: cmd,
-							input: cmd.input,
-							output: new Date().toString(),
-						},
+						{ executedCmd: cmd, input: cmd.input, output: sudo },
 					],
 				};
 			});
-			// Clear command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);

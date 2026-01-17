@@ -1,5 +1,5 @@
 import { AvailableCmds, Command } from "@/utils/cmds";
-import { atom, useAtomValue, useSetAtom } from "jotai";
+import { atom, useAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom, CurrentPathAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
 
@@ -10,7 +10,7 @@ interface PwdCommand extends Command {
 const PwdCmdAtom = atom<PwdCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "help") {
+	if (cmd?.cmd === "pwd") {
 		return cmd as PwdCommand;
 	}
 
@@ -18,9 +18,10 @@ const PwdCmdAtom = atom<PwdCommand | null>((get) => {
 });
 
 export default function PwdCmd() {
-	const cmd = useAtomValue(PwdCmdAtom);
-	const setCmdHistory = useSetAtom(CmdHistoryAtom);
-	const currentPath = useAtomValue(CurrentPathAtom);
+	const [cmd] = useAtom(PwdCmdAtom);
+	const [, setCmdHistory] = useAtom(CmdHistoryAtom);
+	const [currentPath] = useAtom(CurrentPathAtom);
+	const [, setCmd] = useAtom(CmdAtom);
 
 	useEffect(() => {
 		if (cmd) {
@@ -33,8 +34,10 @@ export default function PwdCmd() {
 					],
 				};
 			});
+			// Clear the command atom after execution
+			setCmd(null);
 		}
-	}, [cmd]);
+	}, [cmd, currentPath, setCmdHistory, setCmd]);
 
 	return null;
 }

@@ -107,6 +107,37 @@ export const fileSystem: FileSystemItem[] = [
 	},
 ];
 
-export function findFile(path: string) {
-	return {} as FileSystemItem;
+export function findFile(path: string): FileSystemItem | null {
+	const pathParts = path.split("/").filter((part) => part.length > 0);
+	let currentItems = fileSystem;
+
+	for (const part of pathParts) {
+		if (part === "~") {
+			continue; // Skip home directory part
+		}
+
+		const found = currentItems.find((item) => item.name === part);
+
+		if (!found) {
+			return null;
+		}
+
+		if (found.type === "directory" && found.children) {
+			currentItems = found.children;
+		} else if (found.type === "file") {
+			// If this is the last part and we found a file, return it
+			if (part === pathParts[pathParts.length - 1]) {
+				return found;
+			} else {
+				// Trying to traverse through a file
+				return null;
+			}
+		}
+	}
+
+	// If we get here, we're looking for a directory
+	const finalPart = pathParts[pathParts.length - 1];
+	const directory = currentItems.find((item) => item.name === finalPart);
+
+	return directory || null;
 }

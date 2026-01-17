@@ -2,23 +2,24 @@ import { AvailableCmds, Command } from "@/utils/cmds";
 import { atom, useAtomValue, useSetAtom } from "jotai";
 import { CmdAtom, CmdHistoryAtom } from "@/hooks/use-terminal";
 import { useEffect } from "react";
+import { hacked } from "@/utils/text";
 
-interface DateCommand extends Command {
-	cmd: AvailableCmds["date"];
+interface HackCommand extends Command {
+	cmd: AvailableCmds["hack"];
 }
 
-const DateCmdAtom = atom<DateCommand | null>((get) => {
+const HackCmdAtom = atom<HackCommand | null>((get) => {
 	const cmd = get(CmdAtom);
 
-	if (cmd?.cmd === "date") {
-		return cmd as DateCommand;
+	if (cmd?.cmd === "hack") {
+		return cmd as HackCommand;
 	}
 
 	return null;
 });
 
-export default function DateCmd() {
-	const cmd = useAtomValue(DateCmdAtom);
+export default function HackCmd() {
+	const cmd = useAtomValue(HackCmdAtom);
 	const setCmdHistory = useSetAtom(CmdHistoryAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
@@ -29,15 +30,10 @@ export default function DateCmd() {
 					index: prev.index + 1,
 					history: [
 						...prev.history,
-						{
-							executedCmd: cmd,
-							input: cmd.input,
-							output: new Date().toString(),
-						},
+						{ executedCmd: cmd, input: cmd.input, output: hacked },
 					],
 				};
 			});
-			// Clear command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);
