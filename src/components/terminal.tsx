@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import TerminalInput from "./terminal-input";
 import TerminalOutputHistory from "./terminal-ouput-history";
+import TerminalCommands from "./terminal-commands";
 
 interface CommandOutput {
 	command: string;
@@ -58,6 +59,7 @@ export default function Terminal() {
 						</p>
 					</div>
 
+					<TerminalCommands />
 					<TerminalOutputHistory />
 					<TerminalInput />
 				</div>

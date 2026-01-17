@@ -106,3 +106,7 @@ export const fileSystem: FileSystemItem[] = [
 		},
 	},
 ];
+
+export function findFile(path: string) {
+	return {} as FileSystemItem;
+}

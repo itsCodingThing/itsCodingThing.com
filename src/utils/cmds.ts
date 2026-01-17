@@ -1,26 +1,23 @@
-export const AvailableCmds = [
-	"help",
-	"clear",
-	"ls",
-	"pwd",
-	"cat",
-	"cd",
-	"echo",
-	"date",
-	"whoami",
-	"about",
-	"projects",
-	"skills",
-	"contact",
-	"matrix",
-	"fortune",
-	"ascii",
-	"starwars",
-	"hack",
-	"sudo",
-] as const;
+export const AvailableCmds = {
+	help: "help",
+	clear: "clear",
+	ls: "ls",
+	pwd: "pwd",
+	cat: "cat",
+	cd: "cd",
+	echo: "echo",
+	date: "date",
+	whoami: "whoami",
+	matrix: "matrix",
+	fortune: "fortune",
+	ascii: "ascii",
+	starwars: "starwars",
+	hack: "hack",
+	sudo: "sudo",
+} as const;
 
-export type AvailableCmd = (typeof AvailableCmds)[number];
+export type AvailableCmds = typeof AvailableCmds;
+export type AvailableCmd = (typeof AvailableCmds)[keyof typeof AvailableCmds];
 
 export interface Command {
 	cmd: AvailableCmd;
