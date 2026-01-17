@@ -23,8 +23,8 @@ export default function useTerminal() {
 	const currentPath = useAtomValue(CurrentPathAtom);
 	const setCmd = useSetAtom(CmdAtom);
 
-	const executeCmd = (value: string) => {
-		const parsedCmd = parseCommand(value);
+	const executeCmd = () => {
+		const parsedCmd = parseCommand(input);
 
 		setInput("");
 		setCmd(parsedCmd);

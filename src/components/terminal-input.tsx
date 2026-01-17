@@ -1,6 +1,6 @@
 import { useClickAway } from "@uidotdev/usehooks";
 import useTerminal from "@/hooks/use-terminal";
-import { useEffect, useRef } from "react";
+import { ComponentProps, useEffect, useRef } from "react";
 
 export default function TerminalInput() {
 	const terminal = useTerminal();
@@ -13,13 +13,36 @@ export default function TerminalInput() {
 		inputRef.current?.focus();
 	}, []);
 
+	const handleOnChange: ComponentProps<"input">["onChange"] = (e) => {
+		terminal.setInput(e.currentTarget.value);
+	};
+
+	const handleOnKeyDown: ComponentProps<"input">["onKeyDown"] = (e) => {
+		if (e.key === "Tab") {
+			e.preventDefault();
+			terminal.autoComplete();
+		}
+
+		if (e.key === "ArrowUp") {
+			e.preventDefault();
+			terminal.moveCmdHistory("up");
+		}
+
+		if (e.key === "ArrowDown") {
+			e.preventDefault();
+			terminal.moveCmdHistory("down");
+		}
+	};
+
+	const handleOnSubmit: ComponentProps<"form">["onSubmit"] = (e) => {
+		e.preventDefault();
+		terminal.executeCmd();
+	};
+
 	return (
 		<form
 			ref={clickAwayRef}
-			onSubmit={(e) => {
-				e.preventDefault();
-				terminal.executeCmd(terminal.input);
-			}}
+			onSubmit={handleOnSubmit}
 			className="flex items-center flex-wrap"
 		>
 			<span className="text-green-400 mr-2 whitespace-nowrap shrink-0 text-xs sm:text-sm">
@@ -27,27 +50,10 @@ export default function TerminalInput() {
 			</span>
 			<input
 				ref={inputRef}
-				type="text"
 				value={terminal.input}
-				onChange={(e) => {
-					terminal.setInput(e.currentTarget.value);
-				}}
-				onKeyDown={(e) => {
-					if (e.key === "Tab") {
-						e.preventDefault();
-						terminal.autoComplete();
-					}
-
-					if (e.key === "ArrowUp") {
-						e.preventDefault();
-						terminal.moveCmdHistory("up");
-					}
-
-					if (e.key === "ArrowDown") {
-						e.preventDefault();
-						terminal.moveCmdHistory("down");
-					}
-				}}
+				onChange={handleOnChange}
+				onKeyDown={handleOnKeyDown}
+				type="text"
 				className="flex-1 bg-transparent outline-none text-green-400 placeholder-green-600 min-w-0 text-xs sm:text-sm"
 				placeholder="Enter command... (Tab: autocomplete, ↑↓: history)"
 				autoComplete="off"
