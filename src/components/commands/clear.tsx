@@ -24,13 +24,12 @@ export default function ClearCmd() {
 
 	useEffect(() => {
 		if (cmd) {
-			setCmdHistory((prev) => {
+			setCmdHistory(() => {
 				return {
-					index: prev.index + 1,
-					history: [{ executedCmd: cmd, input: cmd.input, output: "" }],
+					index: 0,
+					history: [],
 				};
 			});
-			// Clear the command atom after execution
 			setCmd(null);
 		}
 	}, [cmd, setCmdHistory, setCmd]);
