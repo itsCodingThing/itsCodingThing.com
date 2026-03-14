@@ -3,18 +3,19 @@ import "@/styles/tailwind.css";
 import "@/styles/style.css";
 
 export const metadata: Metadata = {
-  title: "itsCodingThing - Terminal Portfolio",
-  description: "Interactive terminal portfolio showcasing full-stack development skills",
+	title: "itsCodingThing - Terminal Portfolio",
+	description:
+		"Interactive terminal portfolio showcasing full-stack development skills",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
+	return (
+		<html lang="en">
+			<body>{children}</body>
+		</html>
+	);
 }

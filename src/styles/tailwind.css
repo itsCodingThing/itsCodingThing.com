@@ -3,17 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --animate-wiggle: wiggle 1s ease-in-out;
+	--animate-wiggle: wiggle 1s ease-in-out;
 
-  @keyframes wiggle {
-    100% {
-      transform: tranaslateY(0);
-      opacity: 100%;
-    }
+	@keyframes wiggle {
+		100% {
+			transform: tranaslateY(0);
+			opacity: 100%;
+		}
 
-    0% {
-      transform: translateY(5px);
-      opacity: 0;
-    }
-  }
+		0% {
+			transform: translateY(5px);
+			opacity: 0;
+		}
+	}
 }
