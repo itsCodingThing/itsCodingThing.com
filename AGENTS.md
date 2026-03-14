@@ -8,12 +8,14 @@ This is a Next.js 16 terminal-style portfolio website built with TypeScript, Rea
 
 ## Development Commands
 
+This project uses **Bun** as the package manager and runtime. All scripts are executed with `bun run`.
+
 ### Core Commands
 
-- `npm run dev` - Start development server with Turbo (recommended for development)
-- `npm run build` - Build production application
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint for code quality checks
+- `bun run dev` - Start development server with Turbo (recommended for development)
+- `bun run build` - Build production application
+- `bun run start` - Start production server
+- `bun run lint` - Run ESLint for code quality checks
 
 ### Testing
 
@@ -86,7 +88,7 @@ src/
 ├── components/             # React components
 │   ├── terminal-input.tsx # Terminal input component
 │   ├── terminal.tsx       # Main terminal component
-│   └── terminal-ouput-history.tsx # Output history component
+│   └── terminal-output-history.tsx # Output history component
 ├── hooks/                  # Custom React hooks
 │   └── use-terminal.ts    # Terminal logic hook
 ├── styles/                 # CSS and Tailwind files
