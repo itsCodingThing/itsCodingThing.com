@@ -11,6 +11,7 @@ import {
 	FiMoon,
 } from "react-icons/fi";
 import SectionTitle from "@/components/section-title";
+import Typed from "@/components/typed";
 
 const projects = [
 	{
@@ -38,7 +39,7 @@ export default function MePage() {
 		<main className={dark ? "dark" : ""}>
 			<div className="min-h-screen bg-[#fafafa] text-slate-800 dark:bg-[#0a0a0a] dark:text-slate-300 transition-colors duration-300">
 				<button
-					className="fixed top-6 right-6 p-3 rounded-full transition-all duration-300 z-50 bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-yellow-400 dark:border-slate-700 dark:hover:bg-slate-700"
+					className="cursor-pointer fixed top-6 right-6 p-3 rounded-full transition-all duration-300 z-50 bg-white text-slate-600 border border-slate-200 hover:bg-slate-100 dark:bg-slate-800 dark:text-yellow-400 dark:border-slate-700 dark:hover:bg-slate-700"
 					aria-label="Toggle theme"
 					onClick={toggle}
 				>
@@ -51,7 +52,7 @@ export default function MePage() {
 							Hello, I am
 						</p>
 						<h1 className="text-5xl font-light mb-6 tracking-tight text-slate-900 dark:text-white">
-							Bhanu Pratap Singh
+							<Typed text="Bhanu Pratap Singh" speed={80} />
 						</h1>
 						<p className="text-xl font-light leading-relaxed max-w-lg text-slate-500 dark:text-slate-400">
 							A full-stack developer crafting clean, efficient, and user-focused
