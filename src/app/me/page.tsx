@@ -10,6 +10,7 @@ import {
 	FiSun,
 	FiMoon,
 } from "react-icons/fi";
+import SectionTitle from "@/components/section-title";
 
 const projects = [
 	{
@@ -73,9 +74,7 @@ export default function MePage() {
 					</header>
 
 					<section id="about" className="mb-32">
-						<h2 className="text-sm font-medium uppercase tracking-widest mb-8 text-slate-400 dark:text-slate-500">
-							About
-						</h2>
+						<SectionTitle>About</SectionTitle>
 						<div className="space-y-6 leading-relaxed text-slate-600 dark:text-slate-400">
 							<p>
 								I&apos;m a full-stack developer with 3+ years of experience
@@ -92,9 +91,7 @@ export default function MePage() {
 					</section>
 
 					<section id="skills" className="mb-32">
-						<h2 className="text-sm font-medium uppercase tracking-widest mb-8 text-slate-400 dark:text-slate-500">
-							Skills
-						</h2>
+						<SectionTitle>Skills</SectionTitle>
 						<div className="grid grid-cols-2 gap-6">
 							{[
 								{
@@ -146,9 +143,7 @@ export default function MePage() {
 					</section>
 
 					<section id="work" className="mb-32">
-						<h2 className="text-sm font-medium uppercase tracking-widest mb-8 text-slate-400 dark:text-slate-500">
-							Selected Work
-						</h2>
+						<SectionTitle>Selected Work</SectionTitle>
 						<div className="space-y-12">
 							{projects.map((project) => (
 								<div key={project.title} className="group">
@@ -180,9 +175,7 @@ export default function MePage() {
 					</section>
 
 					<section id="contact" className="mb-20">
-						<h2 className="text-sm font-medium uppercase tracking-widest mb-8 text-slate-400 dark:text-slate-500">
-							Get in Touch
-						</h2>
+						<SectionTitle>Get in Touch</SectionTitle>
 						<p className="mb-8 leading-relaxed max-w-lg text-slate-500 dark:text-slate-400">
 							I&apos;m open to new opportunities and collaborations. Feel free
 							to reach out!
