@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
-import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
 
 export const metadata: Metadata = {
 	title: "itsCodingThing - Full Stack Developer",

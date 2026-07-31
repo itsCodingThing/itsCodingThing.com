@@ -1,6 +1,6 @@
 {
 	"name": "itscodingthing",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"description": "minimal terminal-style portfolio website",
 	"scripts": {
 		"dev": "next --turbo",
@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "eslint",
 		"type": "tsc",
-		"fmt": "biome format --write"
+		"format": "biome format --write",
+		"check": "biome check"
 	},
 	"dependencies": {
 		"@tailwindcss/postcss": "^4.3.3",
