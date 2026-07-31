@@ -14,9 +14,11 @@
 	"dependencies": {
 		"@tailwindcss/postcss": "^4.3.3",
 		"next": "^16.2.12",
+		"octokit": "^5.0.5",
 		"react": "^19.2.8",
 		"react-dom": "^19.2.8",
-		"tailwindcss": "^4.3.3"
+		"tailwindcss": "^4.3.3",
+		"zod": "^4.4.3"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.6",
