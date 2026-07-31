@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import "@/styles/tailwind.css";
 import "@/styles/style.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-	title: "itsCodingThing - Terminal Portfolio",
+	title: "itsCodingThing - Full Stack Developer",
 	description:
-		"Interactive terminal portfolio showcasing full-stack development skills",
+		"Portfolio of Bhanu Pratap Singh, a full-stack developer crafting clean, efficient, and user-focused web experiences.",
 };
 
 export default function RootLayout({
@@ -15,7 +17,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body className="bg-ink text-body font-mono antialiased">
+				<div className="max-w-3xl mx-auto px-5 min-h-screen flex flex-col">
+					<Navbar />
+					<main className="flex-1">{children}</main>
+					<Footer />
+				</div>
+			</body>
 		</html>
 	);
 }

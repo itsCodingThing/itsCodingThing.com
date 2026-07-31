@@ -1,26 +1,55 @@
-import Terminal from "@/components/terminal";
+import Link from "next/link";
+import TerminalLabel from "@/components/terminal-label";
+import { profile } from "@/data/profile";
 
-export default function TerminalPage() {
+export default function HomePage() {
 	return (
-		<div className="min-h-screen bg-black text-green-400 p-2 sm:p-4 font-mono text-xs sm:text-sm md:text-base">
-			<div className="max-w-6xl mx-auto h-screen flex flex-col">
-				<div className="bg-gray-900 border border-gray-700 rounded-t-lg p-2 sm:p-3">
-					<div className="flex items-center space-x-2">
-						<div className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-						<div className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
-						<div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
-						<span className="ml-2 sm:ml-4 text-gray-400 text-xs sm:text-sm truncate">
-							terminal@portfolio
-						</span>
-					</div>
+		<div>
+			<section className="py-16 sm:py-24">
+				<p className="text-sm text-muted mb-5">
+					<span className="text-terminal">bhanu@itscodingthing</span>:~$
+				</p>
+				<h1 className="text-4xl sm:text-5xl text-body tracking-tight mb-4">
+					{profile.name}
+				</h1>
+				<p className="text-xl text-terminal-bright mb-6">{profile.role}</p>
+				<p className="text-body leading-relaxed max-w-xl mb-10">
+					{profile.shortBio}
+				</p>
+				<div className="flex flex-wrap gap-6 text-sm">
+					<Link
+						href="/projects"
+						className="text-terminal hover:text-terminal-bright transition-colors"
+					>
+						~/projects
+					</Link>
+					<Link
+						href="/contact"
+						className="text-terminal hover:text-terminal-bright transition-colors"
+					>
+						~/contact
+					</Link>
 				</div>
-				<Terminal />
+			</section>
 
-				<div className="mt-2 sm:mt-4 text-center text-gray-500 text-xs">
-					<div className="block sm:hidden">Tap terminal to focus</div>
-					<div className="hidden sm:block">Type commands to interact</div>
-				</div>
-			</div>
+			<section className="pb-16">
+				<TerminalLabel>about.txt</TerminalLabel>
+				{profile.about.map((paragraph) => (
+					<p key={paragraph} className="text-body leading-relaxed mb-4">
+						{paragraph}
+					</p>
+				))}
+			</section>
+
+			<section className="pb-16">
+				<TerminalLabel>skills</TerminalLabel>
+				{profile.skills.map((group) => (
+					<div key={group.label} className="mb-4">
+						<p className="text-muted text-sm mb-1">{group.label}</p>
+						<p className="text-body">{group.items.join("  ·  ")}</p>
+					</div>
+				))}
+			</section>
 		</div>
 	);
 }

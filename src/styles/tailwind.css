@@ -1,19 +1,9 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 @theme {
-	--animate-wiggle: wiggle 1s ease-in-out;
-
-	@keyframes wiggle {
-		100% {
-			transform: tranaslateY(0);
-			opacity: 100%;
-		}
-
-		0% {
-			transform: translateY(5px);
-			opacity: 0;
-		}
-	}
+	--color-ink: #0a0a0a;
+	--color-body: #d4d4d8;
+	--color-muted: #71717a;
+	--color-terminal: #22c55e;
+	--color-terminal-bright: #4ade80;
 }
