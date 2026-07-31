@@ -1,4 +1,5 @@
-import * as cheerio from "cheerio";
+import Image from "next/image";
+import ogs from "open-graph-scraper";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { getPinnedRepos, type PinnedRepo } from "@/utils/github";
@@ -26,7 +27,17 @@ function ProjectCard({ project }: { project: PinnedRepo }) {
 			>
 				{project.name} <span className="text-muted text-xs">↗</span>
 			</a>
-			<Suspense fallback={<Loading />}>
+			<Suspense
+				fallback={
+					<Image
+						src="/assets/repo-placeholder.png"
+						width={1200}
+						height={600}
+						alt="demo image"
+						className="rounded"
+					/>
+				}
+			>
 				<OgImage url={project.url} />
 			</Suspense>
 			<p className="mt-2 text-body leading-relaxed">{project.description}</p>
@@ -40,10 +51,22 @@ function ProjectCard({ project }: { project: PinnedRepo }) {
 }
 
 async function OgImage(props: { url: string }) {
-	const $ = await cheerio.fromURL(props.url);
-	const link = $("head meta[property='og:image']").attr("content");
-	const height = $("head meta[property='og:image:height']").attr("content");
-	const width = $("head meta[property='og:image:width']").attr("content");
+	const og = await ogs({ url: props.url });
+	const { ogImage } = og.result;
 
-	return <img src={link} width={width} height={height} className="rounded" />;
+	if (ogImage) {
+		if (ogImage.length > 0) {
+			const image = ogImage[0];
+
+			return (
+				<img
+					alt={image.alt ?? "repo image"}
+					src={image.url}
+					width={image.width}
+					height={image.height}
+					className="rounded"
+				/>
+			);
+		}
+	}
 }
