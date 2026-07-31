@@ -8,6 +8,9 @@ export const metadata: Metadata = {
 	title: "itsCodingThing - Full Stack Developer",
 	description:
 		"Portfolio of Bhanu Pratap Singh, a full-stack developer crafting clean, efficient, and user-focused web experiences.",
+	icons: {
+		icon: "/icon.png",
+	},
 };
 
 export default function RootLayout({

@@ -1,3 +1,4 @@
+import * as cheerio from "cheerio";
 import { Octokit } from "octokit";
 import z from "zod";
 
@@ -14,6 +15,14 @@ const GithubUserSchema = z.object({
 					stargazerCount: z.number(),
 					primaryLanguage: z.object({
 						name: z.string(),
+					}),
+					languages: z.object({
+						nodes: z.array(
+							z.object({
+								name: z.string(),
+								color: z.string(),
+							}),
+						),
 					}),
 				}),
 			),
@@ -40,6 +49,12 @@ export async function getPinnedRepos(username: string) {
                 primaryLanguage {
                   name
                 }
+                languages(first: 5, orderBy: {field: SIZE, direction: DESC}) {
+                nodes {
+                  name
+                  color
+                }
+              }
               }
             }
           }
@@ -52,6 +67,7 @@ export async function getPinnedRepos(username: string) {
 	);
 
 	const { user } = await GithubUserSchema.parseAsync(result);
+	const pinnedRepos = user.pinnedItems.nodes;
 
-	return user.pinnedItems.nodes;
+	return pinnedRepos;
 }
