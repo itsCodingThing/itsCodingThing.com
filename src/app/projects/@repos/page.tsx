@@ -1,14 +1,13 @@
 import Image from "next/image";
 import ogs from "open-graph-scraper";
 import { Suspense } from "react";
-import Loading from "@/components/loading";
 import { getPinnedRepos, type PinnedRepo } from "@/utils/github";
 
 export default async function Repos() {
 	const result = await getPinnedRepos("itsCodingThing");
 
 	return (
-		<div className="divide-y divide-zinc-800">
+		<div className="grid md:grid-cols-3 gap-3">
 			{result.map((project) => (
 				<ProjectCard key={project.name} project={project} />
 			))}
